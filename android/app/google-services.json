@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1046901445750",
+    "project_id": "iotapp-1abe2",
+    "storage_bucket": "iotapp-1abe2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046901445750:android:5d03b580f56bb47e3d3b57",
+        "android_client_info": {
+          "package_name": "com.clubbici"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046901445750-35e36oq31hmmibb1vr8ps84pmqkijh3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALw4jpbeW9qFsJAI8RM2_uDdmLyJuo2gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046901445750-35e36oq31hmmibb1vr8ps84pmqkijh3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
