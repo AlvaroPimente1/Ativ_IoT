@@ -17,14 +17,13 @@ export default function Detail({ route }){
         setModalVisible(false)
     }
 
-    function atualizarEnergia({doc}) {
+    function atualizarEnergia() {
         if (consumo === '') {
             Alert.alert('Digite um valor de energia válido');
             return;
         }
         
         const equipamentoRef = firestore().collection('Equipamentos').doc(equipamento.id);
-        
         equipamentoRef
         .update({ energia: parseInt(consumo) })
         .then(() => {
@@ -36,6 +35,19 @@ export default function Detail({ route }){
 
         setModalVisible(false)
     }    
+
+    function excluirEquipamento() {
+        const equipamentoRef = firestore().collection('Equipamentos').doc(equipamento.id);
+        equipamentoRef
+        .delete()
+        .then(() => {
+            Alert.alert('Equipamento excluído com sucesso!');
+            // Realize qualquer outra ação necessária após a exclusão
+        })
+        .catch((error) => {
+            Alert.alert('Erro ao excluir equipamento:', error.toString());
+        });
+    }
 
     return(
         <SafeAreaView style={styles.conteiner}>
@@ -54,11 +66,20 @@ export default function Detail({ route }){
                     <Text style={styles.textoMaior}>Consumo de energia: {equipamento.energia}Kwh</Text>
                 </View>
             </View>
-            <TouchableOpacity style={styles.botao}
-                onPress={showModal}
-            >
-                <Text style={styles.textoBotao}>Editar</Text>
-            </TouchableOpacity>
+
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity style={styles.botao}
+                    onPress={showModal}
+                >
+                    <Text style={styles.textoBotao}>Editar</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.botao}
+                    onPress={excluirEquipamento}
+                >
+                    <Text style={styles.textoBotao}>Excluir</Text>
+                </TouchableOpacity>         
+            </View>
 
 
             {modalVisible && (
