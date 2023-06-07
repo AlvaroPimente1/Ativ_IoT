@@ -15,10 +15,30 @@
   <p>Se você planeja desenvolver aplicativos para Android, é recomendado ter o Android Studio instalado em sua máquina. Você pode baixar o Android Studio em <a href="https://developer.android.com/studio">https://developer.android.com/studio</a>.</p>
 <h2>React Native</h2>
   <p>Depois de atender os pré requisitos. Faça a configuração de ambiente React Native. Seguindo o passo a passo em <a href="https://reactnative.dev/docs/environment-setup">https://reactnative.dev/docs/environment-setup</a></p>
-  <h2>Clonando o Repositório</h2>
-<p>Abra o terminal e execute o seguinte comando:</p>
-  ```
-  git clone https://github.com/AlvaroPimente1/Ativ_IoT.git
-  ```
+  <h1>Instalação</h1>
+
+Siga estes passos para clonar e configurar o projeto:
+
+1. Clone o repositório:
+
+```shell
+git clone https://github.com/seu-usuario/meu-projeto.git
+```
+ 
+2. Entre no diretorio do projeto clonado
+```shell 
+cd Ativ_IoT
+```
+  
+3. Instale as dependências do projeto
+```shell
+npm install
+```
+  
+4. Execute o projeto no seu emulador Android
+```shell
+npx react-native run-android
+```
+
 </body>
 </html>
