@@ -14,7 +14,7 @@ export default function Login({ navigation }){
         signInWithEmailAndPassword(email, senha).
         then(()=> {
             Alert.alert("Usuario Logado com sucesso!")
-            navigation.navigate('Home')
+            navigation.navigate('Top')
         })
         .catch(error => {
             if (error.code === 'auth/user-not-found') {
