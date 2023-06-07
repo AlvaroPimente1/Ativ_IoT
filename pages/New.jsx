@@ -4,21 +4,25 @@ import { useState } from "react";
 import firestore from "@react-native-firebase/firestore";
 
 export default function New(){
-    const [nome, setNome] = useState('')
-    const [energia, setEnergia] = useState('')
+    const [nome, setNome] = useState('');
+    const [ambiente, setAmbiente] = useState('');
     
     function newEquipamento(){
         firestore().
         collection('Equipamentos').
         add({
-            nome,
-            energia,
+            nome: nome,
             ligado: false,
+            energia: 0,
+            ambiente: ambiente,
             date: firestore.FieldValue.serverTimestamp(),
         }).
         then(()=> Alert.alert("Equipamento adicionado com sucesso!")
         ).
         catch((error)=> Alert.alert("Erro ao adicionar o equipamento!"))
+
+        setNome('');
+        setAmbiente('');
     }
 
     return(
@@ -37,15 +41,15 @@ export default function New(){
                         KeyboardAvoidingView="enable"
                         value={nome}
                         onChangeText={setNome}                
-                    />
+                    />      
                     <TextInput
                         style={styles.input}
-                        placeholder={'Energia'}
+                        placeholder={'Ambiente'}
                         placeholderTextColor={"grey"}
                         KeyboardAvoidingView="enable"
-                        value={parseInt(energia)}
-                        onChangeText={setEnergia}                
-                    />                            
+                        value={ambiente}
+                        onChangeText={setAmbiente}                
+                    />                                           
                 </View>
                 <TouchableOpacity
                     style={styles.botao}
@@ -69,22 +73,23 @@ const styles = StyleSheet.create({
     conteinerLista: {
         backgroundColor: '#333333',
         paddingVertical: 30,
-        paddingHorizontal: 100,
+        paddingHorizontal: 50,
         marginBottom: 15,
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#257ef4',
-        marginHorizontal: 30
+        marginHorizontal: 30,
     },
 
     input: {
         borderWidth: 1,
         borderColor: '#257ef4',
-        paddingHorizontal: 12,
+        paddingHorizontal: 10,
         paddingVertical: 1,
         color: "#fff",
         borderRadius: 10,
-        marginBottom: 20
+        marginBottom: 20,
+        width: 150
     },
 
     botao: {

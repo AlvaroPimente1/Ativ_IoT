@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Cadastrar from "../pages/Cadastrar";
 import Home from "../pages/Home";
 import New from "../pages/New";
+import Detail from "../pages/Detail";
 
 const Top = createMaterialTopTabNavigator();
 
@@ -30,14 +31,20 @@ const Stack = createNativeStackNavigator();
 export default function Routes(){
     return(
         <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
-                    headerShown: false
-                }}
-            >
-                <Stack.Screen name='Login' component={Login}/> 
-                <Stack.Screen name='Cadastro' component={Cadastrar}/> 
-                <Stack.Screen name='Top' component={MyTop}/> 
+            <Stack.Navigator>
+                <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/> 
+                <Stack.Screen name='Cadastro' component={Cadastrar} options={{headerShown: false}}/> 
+                <Stack.Screen name='Top' component={MyTop} options={{headerShown: false}}/> 
+                <Stack.Screen name='Detalhes' 
+                    component={Detail} 
+                    options={{
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: '#1C1C1C',
+                        },
+                        headerTintColor: '#fff'
+                    }}
+                /> 
             </Stack.Navigator>
         </NavigationContainer>
     )
